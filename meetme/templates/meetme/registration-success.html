@@ -1,0 +1,28 @@
+{% extends 'meetme/base/base.html' %}
+{% load static %}
+{% block title %} You Registerd Successfully {% endblock %}
+{% block site_css %}
+    
+    <link rel="stylesheet" href="{% static 'meetme/styles/registration-confirmation.css' %}">
+
+    {% endblock %}
+
+{% block main_heading %}
+    Thanks For Signing Up!
+{% endblock %}
+
+        
+       
+{% block body %}
+    <section id="confirmation">
+        <h2>You registered Successfully!</h2>
+        <p> Thanks for signing up- see you at the meetme!</p>
+        <p>Got question or can't make it? Please <a href="mailto: {{organizer_email}}">contact the organizer</a> ahead of time!</p>
+    </section>
+
+    <section id="continue">
+        <p>Ofcaurse you can sign up for more than one Meetme!</p>
+        <P><a href="/meetme" class="btn"> Explore our Meetmes </a></P>
+    </section> 
+{% endblock %}
+

@@ -1,0 +1,64 @@
+section {
+  max-width: 40rem;
+  max-height: 10rem;
+  margin: 3rem auto;
+}
+
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mi {
+  margin: 1rem 0;
+  background-color: #390c8d;
+  padding: 1rem;
+  color: rgb(29, 157, 216);
+  border-radius: 2px;
+}
+
+.meetme-summary {
+  display: flex;
+  align-items: flex-start;
+}
+
+.meetme-image {
+  margin-right: 2rem;
+}
+
+.meetme-image img {
+  width: 6rem;
+  height: 6rem;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.meetme-details h3 {
+  color: inherit;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+}
+
+.meetme-details address {
+  font-style: italic;
+}
+
+.meetme-actions {
+  margin-top: 7rem;
+  text-align: right;
+}
+
+.meetme-actions .btn {
+  background-color: #cb82fb;
+  border-color: #cb82fb;
+  color: #350490;
+  padding: .5rem 1rem;
+  
+}
+
+.meetme-actions .btn:hover {
+  background-color: #ba82fb;
+  border-color: #ba82fb;
+}

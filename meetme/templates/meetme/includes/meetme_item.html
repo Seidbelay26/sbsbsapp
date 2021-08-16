@@ -1,0 +1,16 @@
+<li class='mi'>
+    <article>
+        <div class='meetme-summary'>                         
+            <div class='meetme-image'>
+                <img src='{{ image }}' alt='{{ title }}'>
+            </div>
+            <div class='meetme-details'>
+                <h3>{{ title }}</h3>
+                <addres>{{ location }}</addres>
+            </div>                                   
+        </div>
+        <div class='meetme-actions'>
+            <a href="{% url 'meetme_details' slug  %}" class='btn' target='_blank'>More Details</a>
+        </div>                        
+    </article>
+</li>

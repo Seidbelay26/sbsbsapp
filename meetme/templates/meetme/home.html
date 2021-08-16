@@ -1,0 +1,39 @@
+{% extends 'meetme/base/base.html' %}
+
+{% load static %}
+
+{% block title %}
+    All MeetMe!
+{%endblock%}
+
+{% block site_css %}
+    <link rel="stylesheet" href="{% static 'meetme/styles/all_meetme.css' %}">
+{%endblock%}
+
+{% block main_heading%}
+    We got Great MeetMe Cooming up 
+{% endblock %}
+
+{% block header_content%} 
+    <p>Find the one that best suits your need!</p> 
+{%endblock%}
+
+{% block body %}    
+    <section>
+        <h2>UpComing MeetMe</h2>
+        <ol>
+            {% for mi in meetme %}
+                {% include 'meetme/includes/meetme_item.html' with image=mi.image.url title=mi.title location=mi.location slug=mi.slug %}
+            {%endfor%}
+        </ol>
+    </section>
+{%endblock%}
+
+
+
+
+
+
+
+
+   

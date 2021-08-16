@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{%block nav_title%} Login and give a review! {%endblock%}
+{%block login %}
+    <p class="text-xs">Date: <span id="date" ></span></p>
+    <p class="text-xs">Time: <span id="time"></span></p>   
+    <script>
+        var dt = new Date();
+        document.getElementById("time").innerHTML = dt.toLocaleTimeString();
+        document.getElementById("date").innerHTML = dt.toLocaleDateString();
+    </script>
+{% endblock%}
+
+{% block content %}
+    <div>
+        {% if form.errors %}
+            <p>Your username and password didn't match. Please try again.</p>
+        {% endif %}
+        {% if next %}
+            {% if user.is_authenticated %}
+                <p>Your account doesn't have access to this page. To proceed, please login with an account that has access.</p>
+            {% else %}
+                <p>Please login to see this page.</p>
+            {% endif %}
+        {% endif %}
+
+        <form class=" my-12  border rounded bg-blue-400 text-white" method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td>{{ form.username.label_tag }}</td>
+                    <td class="text-gray-400" >{{ form.username }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.password.label_tag }}</td>
+                    <td class="text-gray-400 ">{{ form.password }}</td>
+                </tr>
+            </table>
+            <button class="w-full bg-green-500   border rounded p-.5 text-white-600" type="submit" value="login">Login  </button>
+            <input type="hidden" name="next" value="{{ next }}">
+            <a class="w-full my-6 text-yellow-400 p-2 font-mono font-black " href="{% url 'password_reset' %}">Lost password?</a>
+        </form>
+    </div>
+{% endblock %}

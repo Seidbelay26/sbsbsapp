@@ -1,0 +1,50 @@
+{% extends 'meetme/base/base.html' %}
+{% load static %}
+
+{% block title %}
+    {{meetme.title}}
+{%endblock%}
+
+
+{% block site_css %}
+    <link rel='stylesheet' href="{% static 'meetme/styles/meetme-details.css'%}">
+{%endblock%}
+
+{%block main_heading %}
+    {{meetme.title}}
+{%endblock%}
+
+{%block body %}
+
+{% if meetme_found %}
+<article>
+    <img id="main-image" src="{{ meetme.image.url }}" alt="{{meetme.title}}">
+    <section id='location'>
+        <h2> MeetMe Location</h2>
+        <addres>This MeetMe takes place in <span>{{ meetme.location.name}}</span>({{ meetme.location.address }}).</addres>
+    </section>
+    <section id='details'>
+        <h2>What's This Meetme About?</h2>
+        <p>{{meetme.description}}</p>
+        <footer>
+            <p>Need more details? Please <a href="mailto: {{meetme.organizer_email}}">Contact me</a>(But do not spam me;-)</p>
+        </footer>
+    </section>
+    <section id='registration'>
+        <h2> Join Me!</h2>
+        <form action="{%url 'meetme_details' meetme.slug%}" method="POST">
+            {% csrf_token %}
+            <ul>
+                {{form.as_ul}}
+            </ul>
+            <div id="registration-actions"> 
+                <button>Register</button>
+            </div>
+        </form>
+    </section>
+</article>
+{% else %}
+<p>No meetme found for this slug, Sorry!</p>
+{%endif%}
+
+{%endblock%}
